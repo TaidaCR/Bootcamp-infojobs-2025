@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resultados de Búsqueda - DevJobs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="scripts/main.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", // Blue 500
+                        "primary-hover": "#2563eb", // Blue 600
+                        "background": "#f8fafc", // Slate 50
+                        "surface": "#ffffff",
+                        "border-light": "#e2e8f0", // Slate 200
+                        "text-main": "#0f172a", // Slate 900
+                        "text-muted": "#64748b", // Slate 500
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background font-display text-text-main min-h-screen flex flex-col overflow-x-hidden">
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md px-4 lg:px-10 py-3">
+        <div class="mx-auto flex max-w-[1440px] items-center justify-between">
+            <div class="flex items-center gap-4 text-slate-800">
+                <div class="size-8 text-primary">
+                    <span class="material-symbols-outlined text-3xl">work_outline</span>
+                </div>
+                <h2 class="text-slate-900 text-xl font-bold leading-tight tracking-[-0.015em]">DevJobs</h2>
+            </div>
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+                <a class="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Buscar Empleos</a>
+                <a class="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Empresas</a>
+                <a class="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Salarios</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <button class="relative p-2 text-slate-600 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-primary"></span>
+                </button>
+                
+                <div>
+                    <devjobs-avatar service="github" username="taidacr" size="24"></devjobs-avatar>
+                    <devjobs-avatar service="google" username="taidacr" size="32"></devjobs-avatar>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 w-full max-w-[1440px] mx-auto p-4 lg:p-8 flex flex-col gap-8">
+        <div class="bg-surface rounded-xl p-4 lg:p-6 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="flex-1 relative group"> 
+                    <span
+                        class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined">search</span>
+                    <input id="inputSearch"
+                        class="w-full bg-slate-50 text-slate-900 rounded-full border border-slate-200 pl-12 pr-4 h-14 focus:ring-2 focus:ring-primary focus:border-transparent placeholder:text-slate-400 transition-all"
+                        placeholder="Cargo, palabra clave o empresa" value="" />
+                </div>
+                <!-- <div class="flex-1 relative group">
+                    <span
+                        class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined">location_on</span>
+                    <input
+                        class="w-full bg-slate-50 text-slate-900 rounded-full border border-slate-200 pl-12 pr-4 h-14 focus:ring-2 focus:ring-primary focus:border-transparent placeholder:text-slate-400 transition-all"
+                        placeholder="Ciudad, estado o código postal" value="Remoto" />
+                </div>
+                <button
+                    class="bg-primary hover:bg-primary-hover text-white font-bold rounded-full h-14 px-8 flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-md shadow-blue-500/20">
+                    <span class="material-symbols-outlined">search</span>
+                    <span>Buscar</span>
+                </button> -->
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 flex-wrap items-end sm:items-center -mt-4">
+            <button id="clearFilters" class="text-sm text-primary hover:text-primary-hover hover:underline hidden sm:block">Limpiar
+                filtros</button>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:ml-auto">
+                <div class="flex items-center gap-2">
+                    <label class="sr-only text-slate-500 text-sm" for="range">Rango salarial:</label>
+                    <div class="relative">
+                        <select
+                            class="appearance-none bg-white border border-slate-300 text-slate-700 text-sm rounded-full py-2 pl-4 pr-10 focus:outline-none focus:border-primary cursor-pointer hover:border-primary transition-colors"
+                            id="range">
+                            <option value="">Rango salarial</option>
+                            <option value="30-50">$30k - $50k</option>
+                            <option value="50-80">$50k - $80k</option>
+                            <option value="80-120">$80k - $120k</option>
+                            <option value="120-150">$120k - $150k</option>
+                            <option value="150+">$150k+</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none material-symbols-outlined text-lg">expand_more</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="sr-only text-slate-500 text-sm" for="type">Tipo de empleo:</label>
+                    <div class="relative">
+                        <select
+                            class="appearance-none bg-white border border-slate-300 text-slate-700 text-sm rounded-full py-2 pl-4 pr-10 focus:outline-none focus:border-primary cursor-pointer hover:border-primary transition-colors"
+                            id="type">
+                            <option value="">Tipo de empleo</option>
+                            <optgroup label="Más comunes">
+                            <option value="full-time">Tiempo completo (84)</option>
+                            <option value="freelance">Freelance (12)</option>
+                            </optgroup>
+                            
+                            <hr/>
+                            <option value="part-time">Medio tiempo (8)</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none material-symbols-outlined text-lg">expand_more</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="sr-only text-slate-500 text-sm" for="level">Nivel de experiencia:</label>
+                    <div class="relative">
+                        <select
+                            class="appearance-none bg-white border border-slate-300 text-slate-700 text-sm rounded-full py-2 pl-4 pr-10 focus:outline-none focus:border-primary cursor-pointer hover:border-primary transition-colors"
+                            id="level">
+                            <option selected="" value="">Nivel de experiencia</option>
+                            <option value="junior">Junior</option>
+                            <option value="mid">Mid</option>
+                            <option value="senior">Senior</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none material-symbols-outlined text-lg">expand_more</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="sr-only text-slate-500 text-sm" for="tech">Tecnologías:</label>
+                    <div class="relative">
+                        <select
+                            class="appearance-none bg-white border border-slate-300 text-slate-700 text-sm rounded-full py-2 pl-4 pr-10 focus:outline-none focus:border-primary cursor-pointer hover:border-primary transition-colors"
+                            id="tech">
+                            <option selected="" value="">Tecnología</option>
+                            <option value="javascript">javascript</option>
+                            <option value="docker">docker</option>
+                            <option value="node">node</option>
+                             <option value="python">python</option>
+                              <option value="sql">sql</option>
+                               <option value="figma">figma</option>
+                                <option value="react">react</option>
+                                 <option value="aws">aws</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none material-symbols-outlined text-lg">expand_more</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="sr-only text-slate-500 text-sm" for="modality">Modalidad:</label>
+                    <div class="relative">
+                        <select
+                            class="appearance-none bg-white border border-slate-300 text-slate-700 text-sm rounded-full py-2 pl-4 pr-10 focus:outline-none focus:border-primary cursor-pointer hover:border-primary transition-colors"
+                            id="modality">
+                            <option value="" selected="">Modalidad</option>
+                            <option value="remote">Remoto</option>
+                            <option value="hybrid">Híbrido</option>
+                            <option value="on-site">Presencial</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none material-symbols-outlined text-lg">expand_more</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="text-slate-500 text-sm hidden sm:inline" for="sort-by">Ordenar por:</label>
+                    <div class="relative">
+                        <select
+                            class="appearance-none bg-white border border-slate-300 text-slate-700 text-sm rounded-full py-2 pl-4 pr-10 focus:outline-none focus:border-primary cursor-pointer hover:border-primary transition-colors"
+                            id="sort-by">
+                            <option>Más relevantes</option>
+                            <option>Fecha: Reciente</option>
+                            <option>Salario: Alto a bajo</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none material-symbols-outlined text-lg">expand_more</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col lg:grid lg:grid-cols-12 gap-8 items-start">
+            <section class="jobs-listings col-span-12 flex flex-col gap-6">
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-end sm:items-center gap-4 border-b border-slate-200 pb-4">
+                    <div>
+                        <h1 id="titulo-busqueda" class="text-2xl font-bold text-slate-900">Todos los empleos</h1>
+                        <p class="text-slate-500 text-sm mt-1">Mostrando 1-10 de 145 empleos</p>
+                    </div>
+                </div>
+               
+            </section>
+             <div class="flex justify-center mt-8">
+                    <nav class="flex items-center gap-2">
+                        <button id="previous-btn"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-primary hover:text-primary transition-colors disabled:opacity-50" disabled>
+                            <span class="material-symbols-outlined text-lg">chevron_left</span>
+                        </button>
+                        <div class="pagination flex flex-row gap-2">
+
+                        </div>
+                        <button id="next-btn"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:border-primary hover:text-primary transition-colors disabled:opacity-50">
+                            <span class="material-symbols-outlined text-lg">chevron_right</span>
+                        </button>
+                    </nav>
+                </div>
+        </div>
+    </main>
+    <footer class="mt-auto border-t border-slate-200 bg-white py-8 px-4 text-center">
+        <p class="text-slate-500 text-sm">© 2026 DevJobs. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
