@@ -1,0 +1,182 @@
+[
+  {
+    "id": "A1B2",
+    "titulo": "Senior Fullstack Developer (Node/React)",
+    "empresa": "Tech Solutions Inc.",
+    "ubicacion": "Remoto",
+    "urlImg": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Buscamos un ingeniero con experiencia en arquitectura de microservicios y liderazgo técnico.",
+    "data": {
+      "range": "120-150",
+      "modality": "remote",
+      "level": "senior",
+      "schedule": "full-time",
+      "tech": ["react", "node", "javascript"]
+    }
+  },
+  {
+    "id": "C3D4",
+    "titulo": "Junior Frontend Developer",
+    "empresa": "Creative Apps",
+    "ubicacion": "Madrid",
+    "urlImg": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Oportunidad para desarrolladores que dominan CSS y React con ganas de aprender.",
+    "data": {
+      "range": "30-50",
+      "modality": "on-site",
+      "level": "junior",
+      "schedule": "full-time",
+      "tech": ["react", "javascript"]
+    }
+  },
+  {
+    "id": "E5F6",
+    "titulo": "Mid Backend Engineer (Python/Django)",
+    "empresa": "DataStream",
+    "ubicacion": "Híbrido",
+    "urlImg": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Responsable de optimizar bases de datos y desarrollar APIs escalables.",
+    "data": {
+      "range": "50-80",
+      "modality": "hybrid",
+      "level": "mid",
+      "schedule": "full-time",
+      "tech": ["python", "sql"]
+    }
+  },
+  {
+    "id": "G7H8",
+    "titulo": "Senior Cloud Architect (AWS)",
+    "empresa": "Global Systems",
+    "ubicacion": "Remoto",
+    "urlImg": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Especialista en infraestructura en la nube y automatización de despliegues.",
+    "data": {
+      "range": "150+",
+      "modality": "remote",
+      "level": "senior",
+      "schedule": "freelance",
+      "tech": ["aws", "docker"]
+    }
+  },
+  {
+    "id": "I9J0",
+    "titulo": "Junior QA Automation Engineer",
+    "empresa": "Quality First",
+    "ubicacion": "Barcelona",
+    "urlImg": "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Ejecución de tests automatizados y reporte de bugs en entornos ágiles.",
+    "data": {
+      "range": "30-50",
+      "modality": "on-site",
+      "level": "junior",
+      "schedule": "part-time",
+      "tech": ["javascript", "python"]
+    }
+  },
+  {
+    "id": "K1L2",
+    "titulo": "Mid DevOps Specialist",
+    "empresa": "Scale Up",
+    "ubicacion": "Híbrido",
+    "urlImg": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Gestión de contenedores Docker y orquestación con Kubernetes.",
+    "data": {
+      "range": "80-120",
+      "modality": "hybrid",
+      "level": "mid",
+      "schedule": "full-time",
+      "tech": ["docker", "aws"]
+    }
+  },
+  {
+    "id": "M3N4",
+    "titulo": "Senior Mobile Developer (Swift)",
+    "empresa": "Mobile First",
+    "ubicacion": "Remoto",
+    "urlImg": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Liderazgo en el desarrollo de aplicaciones nativas para iOS de alto rendimiento.",
+    "data": {
+      "range": "120-150",
+      "modality": "remote",
+      "level": "senior",
+      "schedule": "full-time",
+      "tech": ["javascript", "node"]
+    }
+  },
+  {
+    "id": "O5P6",
+    "titulo": "Junior Data Analyst",
+    "empresa": "Insight Corp",
+    "ubicacion": "Madrid",
+    "urlImg": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Análisis de grandes volúmenes de datos con SQL y visualización en Tableau.",
+    "data": {
+      "range": "30-50",
+      "modality": "hybrid",
+      "level": "junior",
+      "schedule": "full-time",
+      "tech": ["sql", "python"]
+    }
+  },
+  {
+    "id": "Q7R8",
+    "titulo": "Mid Cyber Security Analyst",
+    "empresa": "SecureNet",
+    "ubicacion": "Málaga",
+    "urlImg": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Monitorización de amenazas y respuesta ante incidentes de seguridad.",
+    "data": {
+      "range": "50-80",
+      "modality": "on-site",
+      "level": "mid",
+      "schedule": "full-time",
+      "tech": ["aws", "sql"]
+    }
+  },
+  {
+    "id": "S9T0",
+    "titulo": "Senior UI/UX Designer",
+    "empresa": "Design Lab",
+    "ubicacion": "Remoto",
+    "urlImg": "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Diseño de interfaces centradas en el usuario y prototipado avanzado.",
+    "data": {
+      "range": "80-120",
+      "modality": "remote",
+      "level": "senior",
+      "schedule": "freelance",
+      "tech": ["figma", "react"]
+    }
+  },
+  {
+    "id": "U1V2",
+    "titulo": "Junior Python Developer",
+    "empresa": "Startup Co",
+    "ubicacion": "Híbrido",
+    "urlImg": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Desarrollo de scripts de automatización y soporte al equipo de backend.",
+    "data": {
+      "range": "30-50",
+      "modality": "hybrid",
+      "level": "junior",
+      "schedule": "part-time",
+      "tech": ["python", "sql", "node"]
+    }
+  },
+  {
+    "id": "W3X4",
+    "titulo": "Senior Blockchain Developer",
+    "empresa": "Crypto Hub",
+    "ubicacion": "Remoto",
+    "urlImg": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=600&q=80",
+    "descripcion": "Desarrollo de Smart Contracts en Solidity y protocolos descentralizados.",
+    "data": {
+      "range": "150+",
+      "modality": "remote",
+      "level": "senior",
+      "schedule": "full-time",
+      "tech": ["javascript", "docker", "node"]
+    }
+  }
+]

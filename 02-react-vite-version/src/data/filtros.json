@@ -1,0 +1,7 @@
+{
+    "range": ["30-50", "50-80", "80-120", "120-150", "150+"],
+    "schedule": ["full-time", "part-time", "freelance"],
+    "level": ["junior", "mid", "senior"],
+    "tech": ["javascript", "docker", "node", "python", "sql", "figma", "react", "aws"],
+    "modality": ["remote", "hybrid", "on-site"]
+}

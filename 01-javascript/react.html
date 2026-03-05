@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resultados de Búsqueda - DevJobs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <!-- <script type="module">
+        import React from 'https://esm.sh/react?dev' //lo mas importante de React
+        import ReactDOM from 'https://esm.sh/react-dom/client?dev' //biblioteca que ayuda a renderizarse en otras plataformas
+
+        const titulo = React.createElement(
+            "h1",
+            {
+                style: {color: "#09f"}
+            },
+            "Hola, React!"
+        )
+
+        const rootEl= document.querySelector("#root");
+        const root = ReactDOM.createRoot(rootEl);
+
+        root.render(titulo);
+    </script> -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", // Blue 500
+                        "primary-hover": "#2563eb", // Blue 600
+                        "background": "#f8fafc", // Slate 50
+                        "surface": "#ffffff",
+                        "border-light": "#e2e8f0", // Slate 200
+                        "text-main": "#0f172a", // Slate 900
+                        "text-muted": "#64748b", // Slate 500
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+ 
+</head>
+
+<body class="bg-background font-display text-text-main min-h-screen flex flex-col overflow-x-hidden">
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md px-4 lg:px-10 py-3">
+        <div class="mx-auto flex max-w-[1440px] items-center justify-between">
+            <div class="flex items-center gap-4 text-slate-800">
+                <div class="size-8 text-primary">
+                    <span class="material-symbols-outlined text-3xl">work_outline</span>
+                </div>
+                <h2 class="text-slate-900 text-xl font-bold leading-tight tracking-[-0.015em]">DevJobs</h2>
+            </div>
+            <nav class="hidden md:flex flex-1 justify-center gap-8">
+                <a class="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Buscar Empleos</a>
+                <a class="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Empresas</a>
+                <a class="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Salarios</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button class="relative p-2 text-slate-600 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-primary"></span>
+                </button>
+
+                <div>
+                    <devjobs-avatar service="github" username="taidacr" size="24"></devjobs-avatar>
+                    <devjobs-avatar service="google" username="taidacr" size="32"></devjobs-avatar>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 w-full max-w-[1440px] mx-auto p-4 lg:p-8 flex flex-col gap-8">
+
+        <section class="jobs-search">
+            <h1>React.js, primeros pasos</h1>
+        </section>
+        <section>
+            <h2>Empleos disponibles</h2>
+            <div id="root"></div>
+   <!-- 1. Cargar React y ReactDOM desde CDN -->
+    <script type="module">
+        import React from 'https://esm.sh/react?dev'
+        import ReactDOM from 'https://esm.sh/react-dom/client?dev'
+        window.React = React
+        window.ReactDOMClient = ReactDOM
+    </script>
+
+    <!-- 2. ¡NOVEDAD! Cargar Babel para transformar JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- 3. Nuestro código React CON JSX -->
+    <script type="text/babel">
+        
+        function JobCard({ data, urlImg, titulo, schedule, range, modality, tecnologias }) {
+
+            function handleClick(){
+                setIsApplied(true)
+            }
+
+            const [isApplied, setIsApplied] = React.useState(false);
+
+            const text = isApplied ? "Aplicado" : "Aplicar"; 
+
+            return (
+                <article className="job modality schedule level range tech group relative flex flex-col md:flex-row gap-6 p-6 rounded-xl bg-white border border-slate-200 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-blue-500/5"
+                    data-modality={data?.modality}
+                    data-range={data?.range}
+                    data-level={data?.level}
+                    data-schedule={data?.schedule}
+                    data-tech={data?.tecnologias}>
+                    
+                    <div className="absolute top-4 right-4">
+                        <button className="text-slate-400 hover:text-primary transition-colors">
+                            <span className="material-symbols-outlined">bookmark_border</span>
+                        </button>
+                    </div>
+
+                    <div className="flex-shrink-0">
+                        <div className="size-16 rounded-xl bg-white border border-slate-100 p-2 flex items-center justify-center overflow-hidden">
+                            <img alt="Company Logo" className="w-full h-full object-contain" src={urlImg} />
+                        </div>
+                    </div>
+
+                    <div className="flex-grow flex flex-col gap-3">
+                        <div>
+                            <div className="flex items-center gap-2 mb-1">
+                                <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+                                    {titulo}
+                                </h3>
+                                <span className="bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider border border-blue-100">
+                                    Nuevo
+                                </span>
+                            </div>
+                            <p className="text-slate-600 font-medium text-justify">Google Inc.</p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 text-sm text-slate-500">
+                            <span className="flex items-center gap-1 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
+                                <span className="material-symbols-outlined text-base">schedule</span> {schedule}
+                            </span>
+                            <span className="flex items-center gap-1 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
+                                <span className="material-symbols-outlined text-base">attach_money</span> {range}
+                            </span>
+                            <span className="flex items-center gap-1 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
+                                <span className="material-symbols-outlined text-base">apartment</span> {modality}
+                            </span>
+                            <span className="flex items-center gap-1 bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
+                                <span className="material-symbols-outlined text-base">code</span> {tecnologias}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="hidden md:flex flex-col items-end justify-between">
+                        <div className="h-6"></div>
+                        <button onClick={handleClick} className={`button-apply-job bg-primary hover:bg-primary-hover text-white px-6 py-2 rounded-full font-bold text-sm transition-transform active:scale-95 shadow-lg shadow-blue-500/20 ${isApplied ? 'isApplied' : ''}`} disabled={isApplied}>
+                            {text}
+                        </button>
+                    </div>
+                </article>
+            )
+        }
+
+        function App() {
+            return (
+                <div className="jobs-listings">
+                    <JobCard
+                        urlImg="https://logo.clearbit.com/google.com"
+                        titulo="Desarrollador Frontend React.js"
+                        schedule="Tiempo completo"
+                        range="$70,000 - $90,000"
+                        modality="Remoto"
+                        tecnologias="React, JavaScript, CSS"
+                        data={{ modality: "Remoto", range: "Medio", level: "Junior", schedule: "Tiempo completo", tecnologias: "React, JavaScript" }}
+                    />
+                </div>
+            )
+        }
+
+        // Renderizar
+      window.onload = () => {
+        const rootEl = document.querySelector('#root')
+        const root = ReactDOMClient.createRoot(rootEl)
+        root.render(<App />)
+      }
+    </script>
+        </section>
+
+
+    </main>
+    <footer class="mt-auto border-t border-slate-200 bg-white py-8 px-4 text-center">
+        <p class="text-slate-500 text-sm">© 2026 DevJobs. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>JobHunt - Encuentra Tu Empleo Ideal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="/scripts/main.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6", // Blue-500, clear blue tone as requested
+                        "primary-dark": "#2563eb", // Blue-600
+                        "background-light": "#f8fafc", // Clean slate-50 background
+                        "background-dark": "#0f172a", // Slate-900 based dark bg
+                        "surface-dark": "#1e293b", // Slate-800
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "glow": "0 0 20px -5px rgba(59, 130, 246, 0.3)", // Updated glow to blue
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light text-slate-900 overflow-x-hidden transition-colors duration-200">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <header class="fixed top-0 z-50 w-full px-4 md:px-10 py-3 glass-nav">
+            <div class="mx-auto max-w-7xl flex items-center justify-between">
+                <div class="flex items-center gap-4 text-slate-900">
+                    <div class="size-8 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined !text-3xl">work_outline</span>
+                    </div>
+                    <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">JobHunt</h2>
+                </div>
+                <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                    <div class="flex items-center gap-6 lg:gap-9">
+                        <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                            href="#">Buscar Empleos</a>
+                        <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                            href="#">Empresas</a>
+                        <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                            href="#">Subir CV</a>
+                    </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-white px-4 text-sm font-bold text-slate-900 hover:bg-slate-50 transition-colors">
+                            <span class="truncate">Iniciar Sesión</span>
+                        </button>
+                        <button
+                            class="flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary px-6 text-white text-sm font-bold shadow-lg shadow-primary/30 hover:bg-primary-dark transition-all hover:scale-105">
+                            <span class="truncate">Registrarse</span>
+                        </button>
+                    </div>
+                </div>
+                <button class="md:hidden flex items-center justify-center text-slate-900">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+        <main class="flex-1 pt-16">
+            <section class="relative flex flex-col items-center justify-center px-4 py-16 md:py-24 lg:py-32">
+                <div class="absolute inset-0 z-0 overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-background-light/95 via-background-light/80 to-background-light z-10">
+                    </div>
+                    <div class="h-full w-full bg-cover bg-center" data-alt="Modern office space with blurry background"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxyw8uQvI3lauBymbLJDLXEzdFGu71II-LCzo-9V5_32Ct8HbuoQdViEGqVkXWTc16vB-qlh5beI5VEfaq-CfX3LsBh9UszsAYxHYD9zGqlFBbmTu9l6Zask4IxSC_MnsvlSDtuzadKFzFSJKdD5o6FB_HG42nT71TpvUifR4ac9-2edZ7mNBVsf1y3uKXkZTMv4kaQRFWYBOi5CxCFWjscfg159BvcMVpESMCASmlRVNXOUXjMdkTLqxIahGiK-5IR5ywPcID7TE');">
+                    </div>
+                </div>
+                <div class="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center gap-8 text-center">
+                    <div class="flex flex-col gap-4 animate-fade-in-up">
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-7xl font-black leading-tight tracking-tight text-slate-900">
+                            Encuentra tu <span class="text-primary">empleo ideal</span> hoy
+                        </h1>
+                        <p class="text-lg md:text-xl font-normal text-slate-500 max-w-2xl mx-auto">
+                            Conecta con miles de las mejores empresas contratando ahora. Tu próximo paso profesional
+                            comienza aquí.
+                        </p>
+                    </div>
+                    <div class="w-full max-w-3xl transform transition-all hover:scale-[1.01]">
+                        <form
+                            class="flex w-full flex-col md:flex-row items-center gap-3 rounded-2xl bg-white p-2 shadow-2xl shadow-primary/10 border-2 border-primary/20 ring-4 ring-primary/5">
+                            <div
+                                class="flex w-full flex-1 items-center px-4 h-12 md:h-14 border-b md:border-b-0 md:border-r border-slate-100">
+                                <span class="material-symbols-outlined text-primary/70 mr-3">search</span>
+                                <input
+                                    class="h-full w-full bg-transparent text-base font-medium text-slate-900 placeholder-slate-400 outline-none border-none focus:ring-0 p-0"
+                                    placeholder="Título, palabras clave o empresa" type="text" />
+                            </div>
+                            <div class="flex w-full flex-1 items-center px-4 h-12 md:h-14">
+                                <span class="material-symbols-outlined text-primary/70 mr-3">location_on</span>
+                                <input
+                                    class="h-full w-full bg-transparent text-base font-medium text-slate-900 placeholder-slate-400 outline-none border-none focus:ring-0 p-0"
+                                    placeholder="Ciudad, estado o remoto" type="text" />
+                            </div>
+                            <button
+                                class="w-full md:w-auto h-12 md:h-14 rounded-xl bg-primary px-8 text-white text-base font-bold shadow-lg shadow-primary/30 hover:bg-primary-dark transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined md:hidden">search</span>
+                                <span>Buscar</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-3 pt-4">
+                        <span class="text-sm font-medium text-slate-500 py-1">Tendencias:</span>
+                        <a class="flex h-8 items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-4 py-1 hover:border-primary hover:bg-primary/5 transition-all group shadow-sm"
+                            href="#">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary !text-[18px]">public</span>
+                            <span
+                                class="text-xs md:text-sm font-medium text-slate-600 group-hover:text-primary">Remoto</span>
+                        </a>
+                        <a class="flex h-8 items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-4 py-1 hover:border-primary hover:bg-primary/5 transition-all group shadow-sm"
+                            href="#">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary !text-[18px]">code</span>
+                            <span
+                                class="text-xs md:text-sm font-medium text-slate-600 group-hover:text-primary">Ingeniero</span>
+                        </a>
+                        <a class="flex h-8 items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-4 py-1 hover:border-primary hover:bg-primary/5 transition-all group shadow-sm"
+                            href="#">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary !text-[18px]">campaign</span>
+                            <span
+                                class="text-xs md:text-sm font-medium text-slate-600 group-hover:text-primary">Marketing</span>
+                        </a>
+                        <a class="flex h-8 items-center justify-center gap-2 rounded-full bg-white border border-slate-200 px-4 py-1 hover:border-primary hover:bg-primary/5 transition-all group shadow-sm"
+                            href="#">
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:text-primary !text-[18px]">palette</span>
+                            <span
+                                class="text-xs md:text-sm font-medium text-slate-600 group-hover:text-primary">Diseño</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="border-y border-slate-200 bg-white">
+                <div class="mx-auto max-w-7xl px-4 py-10 md:px-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="flex flex-col items-center md:items-start gap-1 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                            <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Empleos Activos</p>
+                            <div class="flex items-end gap-3">
+                                <p class="text-slate-900 text-4xl font-black tracking-tight">120k+</p>
+                                <span
+                                    class="mb-1 flex items-center text-sm font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                                    <span class="material-symbols-outlined !text-sm mr-1">trending_up</span> 12%
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col items-center md:items-start gap-1 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                            <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">Empresas Contratando
+                            </p>
+                            <div class="flex items-end gap-3">
+                                <p class="text-slate-900 text-4xl font-black tracking-tight">5,000+</p>
+                                <span
+                                    class="mb-1 flex items-center text-sm font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                                    <span class="material-symbols-outlined !text-sm mr-1">trending_up</span> 5%
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col items-center md:items-start gap-1 p-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                            <p class="text-slate-500 text-sm font-medium uppercase tracking-wider">CVs Subidos</p>
+                            <div class="flex items-end gap-3">
+                                <p class="text-slate-900 text-4xl font-black tracking-tight">1M+</p>
+                                <span
+                                    class="mb-1 flex items-center text-sm font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                                    <span class="material-symbols-outlined !text-sm mr-1">trending_up</span> 20%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-16 md:py-24 px-4 bg-background-light">
+                <div class="mx-auto max-w-7xl flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+                    <div class="flex flex-col gap-6 lg:w-1/3 lg:sticky lg:top-32">
+                        <div
+                            class="inline-flex h-10 w-fit items-center rounded-full bg-primary/10 px-4 text-sm font-bold text-primary">
+                            <span class="material-symbols-outlined mr-2 !text-lg">verified</span>
+                            ¿Por qué elegir JobHunt?
+                        </div>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-slate-900">
+                            Hacemos tu búsqueda de empleo más <span
+                                class="text-primary underline decoration-4 underline-offset-4 decoration-primary/30">fácil</span>.
+                        </h2>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            Deja de revisar listas desactualizadas. Usamos emparejamiento avanzado para conectarte con
+                            oportunidades que se ajustan a tus habilidades y expectativas salariales al instante.
+                        </p>
+                        <button
+                            class="mt-4 flex h-12 w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full bg-slate-900 px-6 text-white text-base font-bold shadow-lg transition-transform hover:scale-105 hover:bg-slate-800">
+                            Más sobre nosotros
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:w-2/3">
+                        <div
+                            class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined !text-2xl">bolt</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Postulación Instantánea</h3>
+                                <p class="text-slate-500">Postúlate a múltiples empleos con un solo clic usando tu
+                                    perfil optimizado. No más formularios repetitivos.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined !text-2xl">attach_money</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Transparencia Salarial</h3>
+                                <p class="text-slate-500">Consulta los rangos salariales por adelantado en cada
+                                    publicación. Creemos en la transparencia para que no pierdas tu tiempo.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined !text-2xl">verified_user</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Empresas Verificadas</h3>
+                                <p class="text-slate-500">Verificamos a cada empleador para asegurar oportunidades
+                                    legítimas y un entorno de búsqueda de empleo seguro.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined !text-2xl">notifications_active</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Alertas Inteligentes</h3>
+                                <p class="text-slate-500">Recibe notificaciones inmediatamente cuando se publica un
+                                    empleo que coincide con tus criterios y preferencias específicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="jobs-listings pb-16 md:pb-24 px-4">
+                <div class="mx-auto max-w-7xl">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Últimas Oportunidades</h2>
+                        <a class="text-sm font-bold text-primary hover:underline hover:text-primary-dark" href="#">Ver
+                            todos los empleos -&gt;</a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div
+                            class="group relative flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm border border-slate-200 transition-all hover:border-primary hover:shadow-glow">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-4 items-center">
+                                    <div
+                                        class="h-12 w-12 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden">
+                                        <span class="material-symbols-outlined text-slate-400">business</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 group-hover:text-primary transition-colors">
+                                            Diseñador/a de Producto Senior</h3>
+                                        <p class="text-sm text-slate-500">TechFlow Inc.</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">hace
+                                    2h</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 my-2">
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Remoto</span>
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Tiempo
+                                    completo</span>
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">$120k
+                                    - $150k</span>
+                            </div>
+                            <button
+                                class="button-apply-job w-full rounded-xl bg-slate-900 group-hover:bg-primary py-3 text-sm font-bold text-white transition-colors">
+                                Aplicar
+                            </button>
+                        </div>
+                        <div
+                            class="group relative flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm border border-slate-200 transition-all hover:border-primary hover:shadow-glow">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-4 items-center">
+                                    <div
+                                        class="h-12 w-12 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden">
+                                        <span class="material-symbols-outlined text-slate-400">api</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 group-hover:text-primary transition-colors">
+                                            Desarrollador/a Backend</h3>
+                                        <p class="text-sm text-slate-500">DataSystems</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">hace
+                                    5h</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 my-2">
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Presencial</span>
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Contrato</span>
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">$90k
+                                    - $110k</span>
+                            </div>
+                            <button
+                                class="button-apply-job w-full rounded-xl bg-slate-900 group-hover:bg-primary py-3 text-sm font-bold text-white transition-colors">
+                                Aplicar
+                            </button>
+                        </div>
+                        <div
+                            class="group relative flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm border border-slate-200 transition-all hover:border-primary hover:shadow-glow">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-4 items-center">
+                                    <div
+                                        class="h-12 w-12 rounded-xl bg-slate-100 flex items-center justify-center overflow-hidden">
+                                        <span class="material-symbols-outlined text-slate-400">rocket_launch</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 group-hover:text-primary transition-colors">
+                                            Líder de Marketing de Crecimiento</h3>
+                                        <p class="text-sm text-slate-500">LaunchPad</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">hace
+                                    1d</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 my-2">
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Híbrido</span>
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">Tiempo
+                                    completo</span>
+                                <span
+                                    class="rounded-lg bg-slate-50 border border-slate-100 px-2 py-1 text-xs font-medium text-slate-600">$100k
+                                    - $130k</span>
+                            </div>
+                            <button
+                                class="button-apply-job w-full rounded-xl bg-slate-900 group-hover:bg-primary py-3 text-sm font-bold text-white transition-colors">
+                                Aplicar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="border-t border-slate-200 bg-white py-10 px-4">
+            <div class="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2 text-slate-900">
+                    <div class="size-6 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined !text-2xl">work_outline</span>
+                    </div>
+                    <span class="text-lg font-bold">JobHunt</span>
+                </div>
+                <div class="flex gap-8 text-sm font-medium text-slate-500">
+                    <a class="hover:text-primary transition-colors" href="#">Acerca de</a>
+                    <a class="hover:text-primary transition-colors" href="#">Empleos</a>
+                    <a class="hover:text-primary transition-colors" href="#">Contacto</a>
+                    <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+                </div>
+                <p class="text-sm text-slate-400">© 2024 JobHunt. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
