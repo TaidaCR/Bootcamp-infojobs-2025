@@ -6,11 +6,14 @@ export function Header(){
                 <div className="size-8 text-primary">
                     <span className="material-symbols-outlined text-3xl">work_outline</span>
                 </div>
+                <a href="/">
                 <h2 className="text-slate-900 text-xl font-bold leading-tight tracking-[-0.015em]">DevJobs</h2>
+
+                </a>
             </div>
             <nav className="hidden md:flex flex-1 justify-center gap-8">
                 <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
-                    href="#">Buscar Empleos</a>
+                    href="/search">Buscar Empleos</a>
                 <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                     href="#">Empresas</a>
                 <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
