@@ -5,11 +5,11 @@ import { SearchPage } from "../pages/Search.jsx"
 import {HomePage} from "../pages/Home.jsx"
 import { NotFoundPage } from "../pages/404.jsx";
 
-import {useEffect, useState} from 'react'
+import { useRouter } from "../hooks/useRouter.jsx";
 
 
 function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const {currentPath} = useRouter()
 
   let page=null;
 
@@ -21,15 +21,7 @@ function App() {
     page=<NotFoundPage/>
   }
 
-  useEffect(() => {
-    const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
-    };
-   window.addEventListener("popstate", handleLocationChange)
-    return() => {
-      window.removeEventListener("popstate", handleLocationChange)
-    }
-  }, []) 
+  
 
   return (
     <>
