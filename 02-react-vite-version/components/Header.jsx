@@ -1,3 +1,5 @@
+import { Link } from "./Link.jsx";
+
 export function Header(){
     return(
 <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md px-4 lg:px-10 py-3">
@@ -6,14 +8,14 @@ export function Header(){
                 <div className="size-8 text-primary">
                     <span className="material-symbols-outlined text-3xl">work_outline</span>
                 </div>
-                <a href="/">
+                <Link href="/">
                 <h2 className="text-slate-900 text-xl font-bold leading-tight tracking-[-0.015em]">DevJobs</h2>
 
-                </a>
+                </Link>
             </div>
             <nav className="hidden md:flex flex-1 justify-center gap-8">
-                <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
-                    href="/search">Buscar Empleos</a>
+                <Link className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="/search">Buscar Empleos</Link>
                 <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                     href="#">Empresas</a>
                 <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"

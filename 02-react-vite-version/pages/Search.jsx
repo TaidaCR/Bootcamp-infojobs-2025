@@ -3,7 +3,7 @@ import opciones from '../src/data/filtros.json'
 import jobs from '../src/data/data.json'
 import { JobsList } from "../components/JobsList.jsx"
 import { Pagination } from "../components/Pagination.jsx"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SearchFormSection } from "../components/SearchFormSection.jsx"
 
 const initialFilters = {
@@ -57,6 +57,13 @@ export function SearchPage() {
     setFilters(initialFilters)
     console.log("filtros cleared")
   }
+
+  //Si no se le pasa nada se renderiza cada vez que se renderiza el componente, si se le pasa un estado o prop, se renderiza cada vez que ese estado o prop cambie
+  //Para fetching de datos, suscripciones
+  //Si el parámetro está vacío se ejecuta uan sola vez
+  useEffect(() => {
+    document.title= `Resultados página ${currentPage}`
+  }, [currentPage])
 
   return (
       <main className="flex-1 w-full max-w-[1440px] mx-auto p-4 lg:p-8 flex flex-col gap-8">

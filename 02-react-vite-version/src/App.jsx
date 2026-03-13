@@ -5,9 +5,11 @@ import { SearchPage } from "../pages/Search.jsx"
 import {HomePage} from "../pages/Home.jsx"
 import { NotFoundPage } from "../pages/404.jsx";
 
+import {useEffect, useState} from 'react'
+
 
 function App() {
-  const currentPath= window.location.pathname;
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   let page=null;
 
@@ -18,6 +20,16 @@ function App() {
   } else{
     page=<NotFoundPage/>
   }
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+   window.addEventListener("popstate", handleLocationChange)
+    return() => {
+      window.removeEventListener("popstate", handleLocationChange)
+    }
+  }, []) 
 
   return (
     <>
