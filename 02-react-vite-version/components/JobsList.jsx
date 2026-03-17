@@ -14,7 +14,7 @@ export function JobsList({ page, jobs, resultsPerPage, totalPages }) {
       {(totalPages === 0) ? 
             <p>No se han encontrado empleos.</p> : 
             paginatedJobs.map((job, index) => (
-              <JobCard key={index} data={job.data} empresa={job.empresa} titulo={job.titulo} urlImg={job.urlImg} />
+              <JobCard key={index} idEmpleo={job.id} data={job.data} empresa={job.empresa} titulo={job.titulo} urlImg={job.urlImg}/>
             ))
       }
     </>

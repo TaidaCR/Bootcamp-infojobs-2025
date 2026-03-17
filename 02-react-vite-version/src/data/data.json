@@ -12,7 +12,8 @@
       "level": "senior",
       "schedule": "full-time",
       "tech": ["react", "node", "javascript"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "C3D4",
@@ -27,7 +28,8 @@
       "level": "junior",
       "schedule": "full-time",
       "tech": ["react", "javascript"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "E5F6",
@@ -42,7 +44,8 @@
       "level": "mid",
       "schedule": "full-time",
       "tech": ["python", "sql"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "G7H8",
@@ -57,7 +60,8 @@
       "level": "senior",
       "schedule": "freelance",
       "tech": ["aws", "docker"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "I9J0",
@@ -72,7 +76,8 @@
       "level": "junior",
       "schedule": "part-time",
       "tech": ["javascript", "python"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "K1L2",
@@ -87,7 +92,8 @@
       "level": "mid",
       "schedule": "full-time",
       "tech": ["docker", "aws"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "M3N4",
@@ -102,7 +108,8 @@
       "level": "senior",
       "schedule": "full-time",
       "tech": ["javascript", "node"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "O5P6",
@@ -117,7 +124,8 @@
       "level": "junior",
       "schedule": "full-time",
       "tech": ["sql", "python"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "Q7R8",
@@ -132,7 +140,8 @@
       "level": "mid",
       "schedule": "full-time",
       "tech": ["aws", "sql"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "S9T0",
@@ -147,7 +156,8 @@
       "level": "senior",
       "schedule": "freelance",
       "tech": ["figma", "react"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "U1V2",
@@ -162,7 +172,8 @@
       "level": "junior",
       "schedule": "part-time",
       "tech": ["python", "sql", "node"]
-    }
+    },
+    "applied": false
   },
   {
     "id": "W3X4",
@@ -177,6 +188,7 @@
       "level": "senior",
       "schedule": "full-time",
       "tech": ["javascript", "docker", "node"]
-    }
+    },
+    "applied": false
   }
 ]

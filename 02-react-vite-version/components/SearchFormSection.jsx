@@ -4,15 +4,7 @@ import { SelectFilter } from "../components/SelectFilter.jsx"
 import { ClearFilters } from "../components/ClearFilters.jsx"
 import { useId } from "react"
 
-export function SearchFormSection({opciones, onSearch, clearFilters, textValue }) {
-    const idText = useId()
-    const idTech = useId()
-    const idSchedule = useId()
-    const idLevel = useId()
-    const idRange = useId()
-    const idModality = useId()
-
-
+const useSearchForm = ({idText, idLevel, idTech, idSchedule, idRange, idModality, onSearch}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
@@ -30,7 +22,20 @@ export function SearchFormSection({opciones, onSearch, clearFilters, textValue }
         console.log(filters)
         onSearch(filters)
     }
-    
+
+    return {handleSubmit}
+}
+
+export function SearchFormSection({opciones, onSearch, clearFilters, textValue }) {
+    const idText = useId()
+    const idTech = useId()
+    const idSchedule = useId()
+    const idLevel = useId()
+    const idRange = useId()
+    const idModality = useId()
+
+    const {handleSubmit} = useSearchForm({idText, idLevel, idTech, idSchedule, idRange, idModality, onSearch})
+
     return (
         <section className="jobs-search">
              <form onChange={handleSubmit} id="search-form-section"> 

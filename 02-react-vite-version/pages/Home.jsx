@@ -1,4 +1,22 @@
+import { Link } from "../components/Link.jsx"
+import { useRouter} from "../hooks/useRouter.jsx"
+
 export function HomePage(){
+    const {navigateTo} = useRouter()
+
+    const handleSearch = (event) => {
+        event.preventDefault()
+
+        const formData = new FormData (event.target)
+        const searchTerm = formData.get('search-job')
+
+        const url = searchTerm 
+            ? `/search?text=${encodeURIComponent(searchTerm)}`
+            : '/search'
+
+        navigateTo(url)
+    }
+
     return (
           <main className="flex-1 pt-16">
             <section className="relative flex flex-col items-center justify-center px-4 py-16 md:py-24 lg:py-32">
@@ -21,20 +39,22 @@ export function HomePage(){
                         </p>
                     </div>
                     <div className="w-full max-w-3xl transform transition-all hover:scale-[1.01]">
-                        <form
+                        <form onSubmit={handleSearch}
                             className="flex w-full flex-col md:flex-row items-center gap-3 rounded-2xl bg-white p-2 shadow-2xl shadow-primary/10 border-2 border-primary/20 ring-4 ring-primary/5">
                             <div
                                 className="flex w-full flex-1 items-center px-4 h-12 md:h-14 border-b md:border-b-0 md:border-r border-slate-100">
                                 <span className="material-symbols-outlined text-primary/70 mr-3">search</span>
-                                <input
+                                <input name="search-job"
                                     className="h-full w-full bg-transparent text-base font-medium text-slate-900 placeholder-slate-400 outline-none border-none focus:ring-0 p-0"
                                     placeholder="Job title, keywords, or company" type="text" />
                             </div>
                             <div className="flex w-full flex-1 items-center px-4 h-12 md:h-14">
                                 <span className="material-symbols-outlined text-primary/70 mr-3">location_on</span>
                                 <input
+                                    
                                     className="h-full w-full bg-transparent text-base font-medium text-slate-900 placeholder-slate-400 outline-none border-none focus:ring-0 p-0"
-                                    placeholder="City, state, or remote" type="text" />
+                                    placeholder="City, state, or remote" 
+                                    type="text" />
                             </div>
                             <button
                                 className="w-full md:w-auto h-12 md:h-14 rounded-xl bg-primary px-8 text-white text-base font-bold shadow-lg shadow-primary/30 hover:bg-primary-dark transition-all flex items-center justify-center gap-2">

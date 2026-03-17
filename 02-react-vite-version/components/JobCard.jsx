@@ -1,19 +1,8 @@
-//crear compronente JobCard
-//importarlo y usarlo en App.jsx
-import { useState } from 'react'
+import { Link } from "./Link.jsx";
 
-export function JobCard({data, titulo, empresa, urlImg}) {
-  const [applied, setApplied] = useState(false)
-
-    const handleApply = () => {
-        setApplied(true)
-    }
-
-    const buttonClass = applied ? "button-apply-job isApplied" : "button-apply-job"
-    const buttonText = applied ? "Aplicado" : "Aplicar"
-
+export function JobCard({data, titulo, empresa, urlImg, idEmpleo})  {
     return (
-                <article className="job modality schedule level range tech group relative flex flex-col md:flex-row gap-6 p-6 rounded-xl bg-white border border-slate-200 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-blue-500/5"
+                <a className="job modality schedule level range tech group relative flex flex-col md:flex-row gap-6 p-6 rounded-xl bg-white border border-slate-200 hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-blue-500/5"
                     data-modality={data?.modality}
                     data-range={data?.range}
                     data-level={data?.level}
@@ -63,10 +52,8 @@ export function JobCard({data, titulo, empresa, urlImg}) {
 
                     <div className="hidden md:flex flex-col items-end justify-between">
                         <div className="h-6"></div>
-                        <button  onClick={handleApply} className={buttonClass}>
-                            {buttonText}
-                        </button>
+                        <Link href={`/apply/${idEmpleo}`}>APLICAR</Link>
                     </div>
-                </article>
+                </a>
             )
 }

@@ -3,30 +3,32 @@ import { Header } from "../components/Header.jsx"
 import { Footer } from "../components/Footer.jsx"
 import { SearchPage } from "../pages/Search.jsx"
 import {HomePage} from "../pages/Home.jsx"
+
+import { Route } from "../components/Route.jsx";
 import { NotFoundPage } from "../pages/404.jsx";
+import { ApplyPage } from "../pages/Apply.jsx";
 
-import { useRouter } from "../hooks/useRouter.jsx";
-
+import jobs from '../src/data/data.json'
 
 function App() {
-  const {currentPath} = useRouter()
-
-  let page=null;
-
-  if (currentPath === "/"){
-    page = <HomePage/>
-  } else if (currentPath === "/search"){
-    page= <SearchPage/>
-  } else{
-    page=<NotFoundPage/>
-  }
-
-  
-
+//EJERCICIOS:
+//2. Mejorar componente Link
   return (
     <>
       <Header />
-      {page}
+      <Route path="/" component={HomePage} />
+      <Route path="/search" component={SearchPage} />
+      <Route path="/404" component={NotFoundPage} />
+      {jobs.map(job => (
+        <Route 
+          key={job.id}
+          path={`/apply/${job.id}`} 
+          component={ApplyPage}
+          job={job}
+
+        />
+            ))
+      }
       <Footer text="© 2025 DevJobs. Todos los derechos reservados." />
     </>
   )
