@@ -1,0 +1,58 @@
+:root {
+    --primary-color: #3b82f6;
+    --primary-color-hover: #99bbf4;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-block: 2rem;
+
+    a {
+        background-color: white;
+        color: #475569;
+        border: 1px solid #e2e8f0;
+        border-radius: 50px;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+    }
+}
+
+.pagination a.isActive {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.pageBtn {
+    box-shadow: 1px 1px 6px 0px #cdcdcd;
+    transition: background-color 0.5s ease;
+
+    &:hover,
+    &:focus {
+        background-color: var(--primary-color-hover);
+        transition: background-color 0.5s ease;
+    }
+}
+
+.changeBtn:hover,
+.changeBtn:focus {
+    border:1px solid var(--primary-color);
+    color:var(--primary-color);
+}
+
+.changeBtn:not(:disabled):hover svg path,
+.changeBtn:not(:disabled):focus svg path{
+    stroke:var(--primary-color);
+}
