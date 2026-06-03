@@ -2,6 +2,8 @@ import { useNavigate } from "react-router";
 import { useAuthStore } from "../store/authStore.js";  
 import { useId } from "react";
 import { NavLink } from "react-router";
+import bgLogin from '../assets/bg-login.webp'
+import styles from './login.module.css'
 
 export default function LoginPage() {
     const { login } = useAuthStore()
@@ -26,9 +28,7 @@ export default function LoginPage() {
         <main className="mw">
             <section className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div className="hidden lg:flex flex-col h-full min-h-[600px] rounded-lg overflow-hidden relative shadow-lg group">
-                    <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Modern bright office workspace with glass walls and plants" >
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    <img src={bgLogin} className={styles.loginImg}/>
                     <div className="absolute bottom-0 left-0 p-10 text-white">
                         <div className="mb-4 inline-flex items-center justify-center rounded-full bg-primary/90 p-3 text-white backdrop-blur-sm">
                             <span className="material-symbols-outlined">verified_user</span>

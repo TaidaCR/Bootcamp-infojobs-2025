@@ -37,7 +37,7 @@ export function Pagination({ currentPage = 1, totalPages = 10, onPageChange }) {
     }
 
     return (
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-8 w-fit">
             <nav className={styles.pagination}>
                 <a href={buildPageUrl(currentPage-1)} className={styles.changeBtn} disabled={isFristPage} onClick={handlePrevClick}><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
                     <path d="M15 6L9 12L15 18M15 12H15.01" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

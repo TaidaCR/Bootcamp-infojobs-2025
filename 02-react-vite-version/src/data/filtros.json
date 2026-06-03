@@ -1,7 +1,9 @@
 {
-    "range": ["30-50", "50-80", "80-120", "120-150", "150+"],
-    "schedule": ["full-time", "part-time", "freelance"],
-    "level": ["junior", "mid", "senior"],
-    "tech": ["javascript", "docker", "node", "python", "sql", "figma", "react", "aws"],
-    "modality": ["remote", "hybrid", "on-site"]
+    "nivel": ["junior", "mid-level", "senior"],
+    "technology": ["javascript", "docker", "node", "python", "sql", "figma", "react", "aws", "tailwind", "typescript", "gira", "scrum", "agile", "analytics",
+          "product-strategy",
+          "express",
+          "mongodb",
+          "microservices"],
+    "modalidad": ["remoto", "guadalajara", "cdmx", "barcelona", "bsas", "madrid", "valencia", "bogota"]
 }

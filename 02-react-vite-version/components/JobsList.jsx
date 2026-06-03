@@ -1,20 +1,13 @@
 import { JobCard } from "../components/JobCard"
-import { SearchTitle } from "../components/SearchTitle.jsx"
 
-export function JobsList({ page, jobs, resultsPerPage, totalPages }) {
-  page--;
-  const start = resultsPerPage * page;
-  const end = start + resultsPerPage;
-  const paginatedJobs = jobs.slice(start, end);
+export function JobsList({jobs, totalPages }) {
 
   return (
     <>
-      <SearchTitle id="titulo-busqueda" texth1="Todos los empleos" textp={`Mostrando ${start+1}-${end} de ${jobs.length} empleos`} />
-
       {(totalPages === 0) ? 
             <p>No se han encontrado empleos.</p> : 
-            paginatedJobs.map((job, index) => (
-              <JobCard key={index} idEmpleo={job.id} data={job.data} empresa={job.empresa} titulo={job.titulo} urlImg={job.urlImg}/>
+            jobs.map((job) => (
+              <JobCard key={job.id} job={job}/>
             ))
       }
     </>

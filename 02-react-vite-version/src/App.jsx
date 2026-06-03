@@ -2,17 +2,41 @@
 import { Header } from "../components/Header.jsx"
 import { Footer } from "../components/Footer.jsx"
 import { SearchPage } from "../pages/Search.jsx"
-import {HomePage} from "../pages/Home.jsx"
+import { HomePage } from "../pages/Home.jsx"
 
 import { Route } from "../components/Route.jsx";
 import { NotFoundPage } from "../pages/404.jsx";
 import { ApplyPage } from "../pages/Apply.jsx";
 
-import jobs from '../src/data/data.json'
+import { useEffect, useState } from "react";
+
+const useJobs = () => {
+  const [jobs, setJobs] = useState([])
+  useEffect(() => {
+    async function fetchJobs() {
+      try {
+
+
+        const response = await fetch('https://jscamp-api.vercel.app/api/jobs')
+        const json = await response.json()
+
+        setJobs(json.data)
+      } catch (error) {
+        console.error('Error fetching jobs:', error)
+      }
+    }
+
+    fetchJobs()
+  }, [])
+
+  return { jobs }
+}
+
 
 function App() {
-//EJERCICIOS:
-//2. Mejorar componente Link
+
+  const { jobs } = useJobs()
+
   return (
     <>
       <Header />
@@ -20,14 +44,14 @@ function App() {
       <Route path="/search" component={SearchPage} />
       <Route path="/404" component={NotFoundPage} />
       {jobs.map(job => (
-        <Route 
+        <Route
           key={job.id}
-          path={`/apply/${job.id}`} 
+          path={`/apply/${job.id}`}
           component={ApplyPage}
           job={job}
 
         />
-            ))
+      ))
       }
       <Footer text="© 2025 DevJobs. Todos los derechos reservados." />
     </>

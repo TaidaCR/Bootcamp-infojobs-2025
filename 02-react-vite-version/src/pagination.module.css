@@ -9,7 +9,7 @@
     gap: 0.5rem;
     margin-block: 2rem;
 
-    button {
+    a {
         background-color: white;
         color: #475569;
         border: 1px solid #e2e8f0;
@@ -30,7 +30,7 @@
     }
 }
 
-.pagination button.isActive {
+.pagination a.isActive {
     background-color: var(--primary-color);
     color: white;
 }

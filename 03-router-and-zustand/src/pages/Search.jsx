@@ -51,9 +51,10 @@ const useFilters = () => {
     async function fetchJobs() {
       
       try {
-        const params = new URLSearchParams()
 
         setLoading(true)
+        const params = new URLSearchParams()
+
         if (textToFilter) params.append('text', textToFilter)
         if (filters.technology) params.append('technology', filters.technology)
         if (filters.modalidad) params.append('type', filters.modalidad)
@@ -67,7 +68,7 @@ const useFilters = () => {
         //offset: cuantos resultados te quieres saltar
         params.append('offset', offset)
         const queryParams = params.toString();
-        const response = await fetch(`https://jscamp-api.vercel.app/api/jobs?${queryParams}`)
+        const response = await fetch(`http://localhost:2314/jobs?${queryParams}`)
         const json = await response.json()
 
         setJobs(json.data)
@@ -75,7 +76,7 @@ const useFilters = () => {
         setTotal(json.total)
         console.log(response)
         console.log(filters)
-        console.log("URL de prueba:", `https://jscamp-api.vercel.app/api/jobs?${queryParams}`);
+        console.log("URL de prueba:", `http://localhost:2314/jobs?${queryParams}`);
       } catch (error) {
         console.error('Error fetching jobs:', error)
       } finally {

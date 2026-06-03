@@ -1,13 +1,23 @@
 import { InputField } from "../components/InputField";
+import { Link} from "../components/Link"
 import { useState } from "react";
 import { useEffect } from "react";
-
+//EJERCICIOS
+//1. Guardar filtros en localStorage
+//2. Spinner mientras cargan los jobs
+//3. botón filtros aparece desaparece
 export function ApplyPage({job}) {
 const [applied, setApplied] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setApplied(true);
+
+        const formulario = document.getElementById("apply-form")
+            if(formulario){
+                formulario.reset();
+            }
+
         alert(`¡Has aplicado al puesto de ${job.titulo} en ${job.empresa}!`)
     }
 
@@ -17,7 +27,7 @@ const [applied, setApplied] = useState(false)
       
     },[job.titulo]);
 
-    const buttonClass = applied ? "button-apply-job isApplied" : "button-apply-job"
+    const buttonClass = applied ? "isApplied" : ""
     const applyButtonText = applied ? "Empleo solicitado" : "Enviar mi solicitud";
 
     return (
@@ -26,9 +36,7 @@ const [applied, setApplied] = useState(false)
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
                     <div className="space-y-2">
                         <nav className="flex items-center gap-2 text-sm text-slate-500 mb-2">
-                            <a className="hover:text-primary" href="#">Empleos</a>
-                            <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-                            <a className="hover:text-primary" href="#">Tecnología</a>
+                            <Link className="hover:text-primary" children="Empleos" href="/search"></Link>
                             <span className="material-symbols-outlined text-[16px]">chevron_right</span>
                             <span className="text-primary font-medium">Aplicar</span>
                         </nav>
@@ -69,7 +77,7 @@ const [applied, setApplied] = useState(false)
                             </span>
                             Formulario de Aplicación
                         </h2>
-                        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <form onSubmit={handleSubmit} id="apply-form" className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <InputField labelName="Nombre completo" placeholder="Alex Martínez" required={true}/>
                             <InputField labelName="Correo electrónico" placeholder="alex@ejemplo.com" type="email" required={true}/>
                             <InputField labelName="Teléfono (opcional)" placeholder="+34 000 000 000" type="tel"/>
@@ -90,7 +98,7 @@ const [applied, setApplied] = useState(false)
                                 </div>
                             </div>
                             <div className="md:col-span-2 pt-4">
-                                <button className={buttonClass} type="submit">
+                                <button className={`${buttonClass} button-apply-job btn-primary`} type="submit">
                                     {applyButtonText}
                                 </button>
                             </div>
@@ -100,17 +108,14 @@ const [applied, setApplied] = useState(false)
 
                 <aside className="lg:col-span-4 space-y-6">
                     <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-                        <div className="h-40 bg-slate-200 relative">
-                            <div className="absolute inset-0 bg-slate-300" data-alt="Mapa de la ubicación de la oficina en Madrid" data-location="Madrid"></div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                        </div>
+                     
                         <div className="p-6">
                             <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
-                                <span className="material-symbols-outlined text-primary">location_on</span>
-                                Ubicación
+                                <span className="material-symbols-outlined text-primary">info</span>
+                                Sobre {job.empresa}
                             </h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                dirección completa
+                                {job.content.about}
                             </p>
                         </div>
                     </div>
@@ -118,47 +123,10 @@ const [applied, setApplied] = useState(false)
 
                     <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
                         <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary">redeem</span>
-                            Beneficios de la empresa
+                            <span className="material-symbols-outlined text-primary">checklist</span>
+                            Requisitos
                         </h3>
-                        <ul className="space-y-4">
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 flex-shrink-0 size-5 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-[14px] font-bold">check</span>
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold">Trabajo Flexible</p>
-                                    <p className="text-xs text-slate-500">Modelo híbrido (3 días en casa)</p>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 flex-shrink-0 size-5 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-[14px] font-bold">check</span>
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold">Seguro Médico</p>
-                                    <p className="text-xs text-slate-500">Cobertura premium 100% pagada</p>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 flex-shrink-0 size-5 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-[14px] font-bold">check</span>
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold">Formación Continua</p>
-                                    <p className="text-xs text-slate-500">Presupuesto anual de 1500€ para cursos</p>
-                                </div>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <div className="mt-1 flex-shrink-0 size-5 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-[14px] font-bold">check</span>
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold">Eventos de Equipo</p>
-                                    <p className="text-xs text-slate-500">Off-sites trimestrales y actividades</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <p style={{whiteSpace: 'pre-line'}}>{job.content.requirements}</p>
                     </div>
 
                     <div className="bg-primary p-6 rounded-xl text-white shadow-lg shadow-primary/20">
