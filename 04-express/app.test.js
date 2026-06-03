@@ -24,7 +24,7 @@ after(async () => {
     })                                   
 })
 
-
+//agruparlos por el método HTTP y la ruta que vas a testear.
 describe('GET /jobs', () => {
     test('debería responder con un 200 y devolver un array de empleos', async () => {
                         //petición a jobs
@@ -48,9 +48,18 @@ describe('GET /jobs', () => {
             `Todos los empleos deberían incluir ${tech} en las tecnologías`
         )
     })
+
+    test('Debería devolver el empleo con el id especificado', async () => {
+        const id = 'p7q2m3n6-1l85-7m26-o2p7-6t9k0l2m3o5p'
+        const response = await fetch(`${BASE_URL}/jobs/${id}`)
+        assert.strictEqual(response.status, 200)
+        const json = await response.json()
+        //Compara si dos valores son iguales
+        assert.strictEqual(json.id, id, `El id del empleo debería ser ${id}`)
+    })
 })
 
-describe('POST /jobs')
+
 //EJERCICIO: testear post put patch delete
 //EJECUTAR: NODE_ENV=test node --test app.test.js
  //NODE_ENV=test node --watch --test app.test.js  (Si añado el watch se va ejecutando con cada cambio)
