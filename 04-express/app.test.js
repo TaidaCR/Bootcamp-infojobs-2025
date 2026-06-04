@@ -59,6 +59,32 @@ describe('GET /jobs', () => {
     })
 })
 
+describe('POST /jobs', () =>{
+    test('Debería crear un nuevo empleo y devolverlo', async () => {
+        const newJobData = {
+            id: 'id-de-prueba-123',
+            titulo: 'Trabajo de prueba',
+            empresa: 'Empresa de prueba',
+            ubicacion: 'Ubicación de prueba',
+            data: {
+                technology: ['nodejs', 'react']
+            }
+        }
+
+        const response = await fetch(`${BASE_URL}/jobs`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newJobData)
+        })
+        const json = await response.json()
+        assert.strictEqual(response.status, 201)
+        assert.ok(json.id, 'El empleo creado debería tener un ID generado')
+        assert.strictEqual(json.titulo, newJobData.titulo, 'El título del empleo creado debería ser el mismo que el enviado')
+    })
+})
+
 
 //EJERCICIO: testear post put patch delete
 //EJECUTAR: NODE_ENV=test node --test app.test.js
