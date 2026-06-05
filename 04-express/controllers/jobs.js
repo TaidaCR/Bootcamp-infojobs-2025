@@ -12,7 +12,7 @@ export class JobController {
     }
 
     static async getById(req, res) {
-
+        //Igual que esto: const id = req.params.id
         const { id } = req.params
         const job = await JobModel.getById(id)
 
@@ -35,44 +35,44 @@ export class JobController {
 
     static async partialUpdate(req, res) {
         const { id } = req.params
-        const jobIndex = await JobModel.findIndex(job => job.id == id)
 
-        if (jobIndex === -1) {
+                                                            //pasamos el body completo
+       const updatedJob = await JobModel.partialUpdate(id, req.body)
+
+       if (!updatedJob) {
             return res.status(404).json({
                 error: 'No se ha encontrado el empleo'
             })
         }
-
-        const patchedJob = {
-            ...jobs[jobIndex].id,
-            ...req.body
-        }
-
-        jobs[jobIndex] = patchedJob
-
-        return res.status(201).json(patchedJob)
+        return res.status(200).json(updatedJob)
     }
 
     static async update(req, res) {
         const { id } = req.params
-        const jobIndex = await JobModel.findIndex(job => job.id == id)
+        const { titulo, empresa, ubicacion,descripcion, data, content } = req.body
 
-        if (jobIndex === -1) {
+       const updatedJob = await JobModel.update({id, titulo, empresa, ubicacion, descripcion, data, content})
+       if (!updatedJob) {
+            return res.status(404).json({
+                error: 'No se ha encontrado el empleo'
+            })
+        }
+        return res.status(200).json(updatedJob)
+    }
+
+    static async delete(req, res) {
+        const { id } = req.params
+
+        const jobToDelete = await JobModel.getById(id)
+
+        if (!jobToDelete) {
             return res.status(404).json({
                 error: 'No se ha encontrado el empleo'
             })
         }
 
-        const updatedJob = {
-            ...jobs[jobIndex],
-            ...req.body
-        }
+        await JobModel.delete(id)
 
-        jobs[jobIndex] = updatedJob
-        return res.status(200).json(updatedJob)
-    }
-
-    static async delete(req, res) {
-        //HACER LOGICA DE ESTE
+        return res.status(200).json(jobToDelete)
     }
 }

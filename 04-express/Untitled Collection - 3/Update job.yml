@@ -1,0 +1,28 @@
+info:
+  name: Update job
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: http://localhost:2314/jobs/7a4d1d8b-1e45-4d8c-9f1a-8c2f9a9121a4
+  body:
+    type: json
+    data: |-
+      {
+          "titulo": "Senior Frontend Developer2",
+          "empresa": "TechCorp",
+          "ubicacion": "Barcelona",
+          "data": {
+              "technology": ["React", "TypeScript", "Next.js"],
+              "modalidad": "presencial",
+              "nivel": "senior"
+          }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

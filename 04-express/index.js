@@ -1,3 +1,5 @@
+// VERSION ANTIGUA, AHORA EN APP.JS
+
 //Diferencia con 04-node server.js, este era nativo. 04-express index.js incorpora el frameworl express
 import express from 'express'
 

@@ -1,0 +1,15 @@
+info:
+  name: Delete job
+  type: http
+  seq: 1
+
+http:
+  method: DELETE
+  url: http://localhost:2314/jobs/p7h9i4e5f8-3d07-9e48-g4h9-8l1c2d4e5g7hq2m3n6-1l85-7m26-o2p7-6t9k0l2m3o5p
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
