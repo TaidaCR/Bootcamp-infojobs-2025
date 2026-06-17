@@ -26,9 +26,9 @@ export class JobController {
     }
 
     static async create(req, res) {
-        const { titulo, empresa, ubicacion, data } = req.body
+        const { titulo, empresa, ubicacion, descripcion, data, content } = req.body
 
-        const newJob = await JobModel.create({ titulo, empresa, ubicacion, data })
+        const newJob = await JobModel.create({ titulo, empresa, ubicacion, descripcion, data, content })
 
         return res.status(201).json(newJob)
     }
@@ -37,7 +37,7 @@ export class JobController {
         const { id } = req.params
 
                                                             //pasamos el body completo
-       const updatedJob = await JobModel.partialUpdate(id, req.body)
+        const updatedJob = await JobModel.partialUpdate(id, req.body)
 
        if (!updatedJob) {
             return res.status(404).json({
@@ -49,7 +49,7 @@ export class JobController {
 
     static async update(req, res) {
         const { id } = req.params
-        const { titulo, empresa, ubicacion,descripcion, data, content } = req.body
+        const { titulo, empresa, ubicacion, descripcion, data, content } = req.body
 
        const updatedJob = await JobModel.update({id, titulo, empresa, ubicacion, descripcion, data, content})
        if (!updatedJob) {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "set NODE_ENV=test&& node --test app.test.js"
   },
   "keywords": [],
   "author": "Taida",
@@ -12,7 +12,8 @@
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "jest": "^30.4.2",

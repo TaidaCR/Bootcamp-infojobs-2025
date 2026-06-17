@@ -1,0 +1,41 @@
+info:
+  name: Create a new job
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: http://localhost:2314/jobs/
+  body:
+    type: json
+    data: |-
+      {
+        "titulo": "G",
+        "empresa": "ScalableSystems",
+        "ubicacion": "Valencia2",
+        "descripcion": "Ingeniero backend especializado en Go para desarrollo de microservicios de alto rendimiento. Experiencia con gRPC, PostgreSQL y sistemas distribuidos.",
+        "data": {
+          "technology": [
+            "golang",
+            "grpc",
+            "postgresql",
+            "redis",
+            "kubernetes"
+          ],
+          "modalidad": "PATCH valencia",
+          "nivel": "senior"
+        },
+        "content": {
+          "description": "2MobileFirst Studio busca un React Native Developer para desarrollar aplicaciones móviles multiplataforma de alta calidad. Crearás experiencias móviles fluidas que funcionen perfectamente en iOS y Android.",
+          "responsibilities": "2- Desarrollar aplicaciones móviles multiplataforma con React Native.\n- Implementar interfaces de usuario responsivas y performantes.\n- Integrar APIs RESTful y servicios backend.\n- Gestionar estado de aplicación con Redux o Context API.\n- Optimizar rendimiento de aplicaciones móviles.\n- Publicar y mantener apps en App Store y Google Play.\n- Colaborar con diseñadores para implementar UIs pixel-perfect.",
+          "requirements": "2PATCH - Experiencia sólida desarrollando con React Native.\n- Dominio de JavaScript/TypeScript.\n- Experiencia con Redux o herramientas de gestión de estado.\n- Conocimiento de APIs nativas y módulos nativos.\n- Experiencia publicando apps en App Store y Google Play.\n- Familiaridad con herramientas de build (Xcode, Android Studio).\n- Comprensión de mejores prácticas de desarrollo móvil.",
+          "about": "2ScalableSystems es una empresa que desarrolla sistemas backend de alto rendimiento para clientes enterprise. Ofrecemos un ambiente técnico desafiante donde los ingenieros trabajan en problemas de escala y rendimiento."
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

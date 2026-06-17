@@ -24,14 +24,16 @@ export class JobModel {
         return paginatedJobs
     }
 
-    static async create({ titulo, empresa, ubicacion, data }){
+    static async create({ titulo, empresa, ubicacion, descripcion, data, content }){
         
         const newJob = {
             id: crypto.randomUUID(),
             titulo,
             empresa,
             ubicacion,
-            data
+            descripcion,
+            data,
+            content
         }
 
         jobs.push(newJob)
