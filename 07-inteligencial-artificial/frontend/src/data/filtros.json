@@ -1,0 +1,9 @@
+{
+    "nivel": ["junior", "mid-level", "senior"],
+    "technology": ["javascript", "docker", "node", "python", "sql", "figma", "react", "aws", "tailwind", "typescript", "gira", "scrum", "agile", "analytics",
+          "product-strategy",
+          "express",
+          "mongodb",
+          "microservices"],
+    "modalidad": ["remoto", "guadalajara", "cdmx", "barcelona", "bsas", "madrid", "valencia", "bogota"]
+}

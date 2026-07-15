@@ -18,14 +18,19 @@ export type User = {
     role: "admin" | "user" | "guest" //Tipo literal, solo puede ser uno de esos tres valores
 }
 
-type UserEntity = User & UserId //Tipo de intersección, combina dos tipos en uno
+export type UserBirth = {
+    birth: Date
+}
+
+type UserEntity = User & UserId & UserBirth//Tipo de intersección, combina dos tipos en uno
 
 const entity: UserEntity = {
     id: 1,
     name: "midudev",
     age: 30,
     role: "guest",
-    email: "user@gmail.com"
+    email: "user@gmail.com",
+    birth: new Date("1990-01-01")
 }
 
 export type User2 = {
@@ -34,4 +39,9 @@ export type User2 = {
     readonly age: number
     //propiedad opcional con el ?
     email?: string
+}
+
+
+export type Dictionary = {
+    [key: string]: string
 }
